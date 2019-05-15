@@ -4,7 +4,7 @@ import modosDeJuego.*
 
 object tateti {
 	const combinacionesGanadoras = [[1,2,3],[1,4,7],[1,5,9],[2,5,8],[3,6,9],[3,5,7],[4,5,6],[7,8,9]]
-	var jugadores = [new Jugador(icono = cruz,inteligencia=facil),new Jugador(icono = circulo)]
+	var jugadores = [new Jugador(icono = cruz,inteligencia=maquina),new Jugador(icono = circulo)]
 
 	var property casillerosLibres  
 	var property casillerosOcupados = [] 

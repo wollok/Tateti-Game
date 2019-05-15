@@ -22,10 +22,15 @@ Junto a cada signo se indica con una imagen si es la máquina o una persona.
 - \<Up> Cambiar modo de juego del jugador Cruz (Persona/Maquina) 
 - \<Down> Cambiar modo de juego del jugador Circulo (Persona/Maquina)
 
+#### Desafíos
+
+1) Mejorar la inteligencia de la máquina para jugar
+2) Crear nuevas inteligencias artificiales, cada una con una estrategia diferente de juego y que puedan jugar entre sí.
+3) Modificar interfaz gráfica y usabilidad
 
 #### Autores
 
 Primera version hecha por estudiantes de Paradigmas de Programacion (UTN - FRBA) Matías Giorda y Melanie Ibañez
 https://github.com/matigiorda/TaTeTiWollokGame
 
-Actualización por el docente, Lucas Spigariol
+Actualización por el docente Lucas Spigariol

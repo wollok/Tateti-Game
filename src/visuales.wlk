@@ -1,3 +1,4 @@
+import wollok.game.*
 object partidoTerminado inherits Exception("Partido Terminado"){} 
 object casilleroOcupado inherits Exception("Casillero ocupado " ){
 	var property casillero 

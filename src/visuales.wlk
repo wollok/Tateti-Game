@@ -7,8 +7,8 @@ object casilleroOcupado inherits Exception("Casillero ocupado " ){
 }
 
 object tablero{
-	const image = "tablero.png"
-	const position = game.origin()
+	const property image = "tablero.png"
+	const property position = game.origin()
 	
 	const posicionesTablero = [game.origin(),game.at(0,6), game.at(3,6), game.at(6,6), game.at(0,3), game.at(3,3), game.at(6,3), game.at(0,0), game.at(3,0), game.at(6,0)]
 	const posicionesInteligencias = [game.at(15,6),game.at(15,0)] 

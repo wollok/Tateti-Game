@@ -1,6 +1,6 @@
 import wollok.game.*
-object partidoTerminado inherits Exception("Partido Terminado"){} 
-object casilleroOcupado inherits Exception("Casillero ocupado " ){
+object partidoTerminado inherits Exception(message = "Partido Terminado"){} 
+object casilleroOcupado inherits Exception(message = "Casillero ocupado " ){
 	var property casillero 
 	override method getMessage() = super() + casillero		
 

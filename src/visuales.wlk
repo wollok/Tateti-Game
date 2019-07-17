@@ -1,10 +1,9 @@
 import wollok.game.*
-object partidoTerminado inherits Exception(message = "Partido Terminado"){} 
-object casilleroOcupado inherits Exception(message = "Casillero ocupado " ){
-	var property casillero 
-	override method getMessage() = super() + casillero		
-
-}
+//object partidoTerminado inherits Exception(message = "Partido Terminado"){} 
+//object casilleroOcupado inherits Exception(message = "Casillero ocupado " ){
+//	var property casillero 
+//	override method getMessage() = super() + casillero		
+//}
 
 object tablero{
 	const property image = "tablero.png"

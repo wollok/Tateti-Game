@@ -56,13 +56,15 @@ object tateti {
 	
 	method validarCasilleroLibre(casillero){
 		if(!self.estaLibre(casillero)){
-			casilleroOcupado.casillero(casillero)
-			throw casilleroOcupado 
+//			casilleroOcupado.casillero(casillero)
+//			throw casilleroOcupado 
+			throw new Exception(message = "Casillero ocupado" + casillero)
 		}
 	}
 	method validarFinPartido(){
 		if(self.terminoElPartido())
-			throw partidoTerminado 
+//			throw partidoTerminado
+			throw new Exception(message = "Partido terminado")  
 	}
 	method estaLibre(casillero)	= 
 		casillerosLibres.contains(casillero)

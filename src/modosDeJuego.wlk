@@ -2,11 +2,11 @@ import tateti.*
 import visuales.*
 
 object humano{
-	method image() = "humano.jpg"
 	method jugar() {}
 	method rotar() = maquina
-	method nombre() = "Humano"
+	method nombre() = "humano"
 	method interactiva() = true
+	method image() = self.nombre() + ".jpg"
 } 
 
 object maquina {

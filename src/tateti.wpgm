@@ -15,7 +15,7 @@ program demo {
 	keyboard.num8().onPressDo({tateti.jugadaInteractiva(8)})
 	keyboard.num9().onPressDo({tateti.jugadaInteractiva(9)})
 
-	keyboard.space().onPressDo({tateti.iniciar()})
+	keyboard.space().onPressDo({tateti.comenzar()})
 	keyboard.enter().onPressDo({tateti.siguienteJugada()})
 	
 	keyboard.up().onPressDo({tateti.cambioModoPrimero()})

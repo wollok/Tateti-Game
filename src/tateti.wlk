@@ -4,7 +4,7 @@ import modosDeJuego.*
 
 object tateti {
 	const combinacionesGanadoras = [[1,2,3],[1,4,7],[1,5,9],[2,5,8],[3,6,9],[3,5,7],[4,5,6],[7,8,9]]
-	var jugadores = [new Jugador(icono = cruz,inteligencia=maquina),new Jugador(icono = circulo)]
+	var jugadores = [new Jugador(marca = new Marca(nombre = "cruz"),inteligencia=maquina),new Jugador(marca = new Marca(nombre = "circulo"))]
 
 	var property casillerosLibres  
 	var property casillerosOcupados = [] 
@@ -12,11 +12,11 @@ object tateti {
 	var jugadorActual = jugadores.first()
 	
 	method iniciar()	{
+		self.desplegarMarcas()
 		self.desplegarJugadores()
-		self.desplegarInteligencias()
-		self.limpiar()
 		self.comenzar()		
 	}
+
 	
 	method limpiar() {
 		tablero.vaciar(casillerosOcupados)
@@ -25,14 +25,15 @@ object tateti {
 		casillerosLibres = [1,2,3,4,5,6,7,8,9]
 	}
 	method comenzar(){
+		self.limpiar()
 		jugadorActual = jugadores.first()
 		jugadorActual.jugar()
 	}
-	method desplegarInteligencias(){
-		tablero.mostrarInteligencias(jugadores.map{j=>j.inteligencia()})
+	method desplegarJugadores(){
+		tablero.mostrarJugadores(jugadores)
 	}
-	method desplegarJugadores() {
-		tablero.mostrarJugadores(jugadores.map{j=>j.icono()})
+	method desplegarMarcas() {
+		tablero.mostrarMarcas(jugadores.map{j=>j.marca()})
 	}
 	method siguienteJugada(){
 		jugadorActual.jugar()
@@ -56,14 +57,11 @@ object tateti {
 	
 	method validarCasilleroLibre(casillero){
 		if(!self.estaLibre(casillero)){
-//			casilleroOcupado.casillero(casillero)
-//			throw casilleroOcupado 
-			throw new Exception(message = "Casillero ocupado" + casillero)
+			throw new Exception(message = "Casillero ocupado" + casillero.printString())
 		}
 	}
 	method validarFinPartido(){
 		if(self.terminoElPartido())
-//			throw partidoTerminado
 			throw new Exception(message = "Partido terminado")  
 	}
 	method estaLibre(casillero)	= 
@@ -77,7 +75,7 @@ object tateti {
 	method jugarTurno(jugador, casillero) {
 		self.ocuparCasillero(casillero)
 		jugador.marcarCasillero(casillero)
-		tablero.mostrarJugada(jugador.icono(),casillero)
+		tablero.mostrarJugada(jugador.nombre(),casillero)
 	}
 		
 	method oponente(jugador) = jugadores.find{j=>j != jugador}
@@ -99,7 +97,7 @@ object tateti {
 	}
 	
 	method esGanador(jugador) =
-		return combinacionesGanadoras.any({combinacion => jugador.tieneCombinacion(combinacion)})
+		combinacionesGanadoras.any({combinacion => jugador.tieneCombinacion(combinacion)})
 	
 	method hayGanador()	= 
 		jugadores.any{jugador => self.esGanador(jugador)}
@@ -112,22 +110,20 @@ object tateti {
 	
 	method cambioModoPrimero(){
 		jugadores.first().rotarInteligencia()
-		self.desplegarInteligencias()
 	}
 	method cambioModoUltimo(){
 		jugadores.last().rotarInteligencia()
-		self.desplegarInteligencias()
 	}
 
 }
 
 class Jugador {
-	var property icono
+	var property marca
 	var ocupados = []
 	var property inteligencia = humano
-
-	method nombre() = icono.nombre()
-		
+	
+	method image() = inteligencia.image()
+	method nombre() = marca.nombre()		
 	method marcarCasillero(casillero)	{
 		ocupados.add(casillero)
 	}

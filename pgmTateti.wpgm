@@ -3,17 +3,10 @@ import visuales.*
 import wollok.game.*
 
 program demo {
+	game.boardGround("fondoClaro.jpg")
 	tablero.iniciar()
 
-	keyboard.num1().onPressDo({tateti.jugadaInteractiva(1)})
-	keyboard.num2().onPressDo({tateti.jugadaInteractiva(2)})
-	keyboard.num3().onPressDo({tateti.jugadaInteractiva(3)})
-	keyboard.num4().onPressDo({tateti.jugadaInteractiva(4)})
-	keyboard.num5().onPressDo({tateti.jugadaInteractiva(5)})
-	keyboard.num6().onPressDo({tateti.jugadaInteractiva(6)})
-	keyboard.num7().onPressDo({tateti.jugadaInteractiva(7)})
-	keyboard.num8().onPressDo({tateti.jugadaInteractiva(8)})
-	keyboard.num9().onPressDo({tateti.jugadaInteractiva(9)})
+	(1..9).forEach { number => keyboard.num(number).onPressDo { tateti.jugadaInteractiva(number) }}
 
 	keyboard.space().onPressDo({tateti.comenzar()})
 	keyboard.enter().onPressDo({tateti.siguienteJugada()})
@@ -23,4 +16,5 @@ program demo {
 
 	tateti.iniciar()
 	game.start()
+
 }

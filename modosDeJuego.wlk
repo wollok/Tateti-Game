@@ -4,13 +4,13 @@ import visuales.*
 object humano{
 	method jugar() {}
 	method rotar() = maquina
-	method nombre() = "humano"
+	method nombre() = "human"
 	method interactiva() = true
-	method image() = self.nombre() + ".jpg"
+	method image() = "human.png"
 } 
 
 object maquina {
-	method image() = "maquina.jpg"
+	method image() = "machine.png"
 	method interactiva() = false
 	method nombre() = "Inteligencia artificial" + self.descripcion()
 	method descripcion() = "facil"

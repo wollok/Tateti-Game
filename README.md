@@ -1,5 +1,7 @@
 # Tateti
 
+[![build](https://github.com/wollok/Tateti-Game/actions/workflows/ci.yml/badge.svg)](https://github.com/wollok/Tateti-Game/actions/workflows/ci.yml)
+
 ## Wollok Game
 
 ![Demo](./videos/tateti.gif)

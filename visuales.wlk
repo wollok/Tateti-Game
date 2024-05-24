@@ -17,8 +17,8 @@ object tablero {
 	]
 	
 	method iniciar() {
-		game.width(18)
-		game.height(9)
+		game.width(28)
+		game.height(14)
 		game.addVisual(self)
 	}
 	
@@ -70,5 +70,5 @@ class Marca {
 	var property position = null
 	var property nombre
 	
-	method image() = nombre + ".png"
+	method image() = nombre + "Icon.png"
 }

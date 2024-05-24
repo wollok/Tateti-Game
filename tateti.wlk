@@ -14,8 +14,8 @@ object tateti {
 	]
 
 	const jugadores = [
-		new Jugador(marca = new Marca(nombre = "cruzSmall", position = game.at(12, 6)), inteligencia = maquina, position = game.at(15,6)),
-		new Jugador(marca = new Marca(nombre = "circuloSmall", position = game.at(12, 0)), position = game.at(15,0))
+		new Jugador(marca = new Marca(nombre = "cruz", position = game.at(12, 6)), inteligencia = maquina, position = game.at(15,6)),
+		new Jugador(marca = new Marca(nombre = "circulo", position = game.at(12, 0)), position = game.at(15,0))
 	]
 	var property casillerosLibres = []
 	const property casillerosOcupados = []
@@ -102,7 +102,7 @@ object tateti {
 		if (self.hayGanador()) {
 			victoria.ganador(self.ganador())
 			resultado = victoria
-			game.onTick(5000, "gameEnd", { game.stop() })
+			game.onTick(5000, "gameEnd", { self.iniciar() })
 		}
 		tablero.mensaje(resultado, casillerosOcupados.last())
 	}
